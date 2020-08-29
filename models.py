@@ -42,6 +42,15 @@ class CNNModel:
         """ Returns a tuple (loss, accuracy) """
         return self._model.evaluate(x, y)
 
+    def print_evaluation(self, x, y):
+        loss, score = self.evaluate(x, y)
+        print(
+            f"""
+                Evaluation
+                Loss: {score}
+                Score: {score}
+            """)
+
 
 class AuxModel:
     def __init__(self, model, layer_idx):

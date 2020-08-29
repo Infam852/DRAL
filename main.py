@@ -34,15 +34,7 @@ if __name__ == "__main__":
     (x_eval, y_eval), (x_train, y_train) = split(x_train, y_train, N_EVAL)
     x_test = preprocess_data(X_TEST, data_type='x')
     y_test = preprocess_data(Y_TEST, data_type='y')
-    print("""
-        Shapes:
-        x_train: {}
-        x_eval: {}
-        y_eval: {}
-        x_test: {}
-        y_test: {}
-    """.format(x_train.shape, x_eval.shape, y_eval.shape,
-               x_test.shape, y_test.shape))
+
     sm = DatasetsManager(x_train, x_eval, y_eval, x_test, y_test, NUM_CLASSES)
     train_model = CNNModel(sm.get_x_shape(), NUM_CLASSES, epochs=5)
 
